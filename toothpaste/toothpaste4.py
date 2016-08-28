@@ -4,7 +4,7 @@ class User:
         'email',
         'first_name',
         'last_name',
-        'phone_number'
+        'phone_number',
     ]
     PHONE_LENGTH = 10
 
@@ -30,4 +30,4 @@ class User:
 
     def validate_phone_number(self):
         if len(self.data['phone_number']) != User.PHONE_LENGTH:
-            raise ValueError('Phone number is not the correct length.')
+            raise ValueError('Phone number is incorrect length.')

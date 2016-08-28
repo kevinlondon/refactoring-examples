@@ -11,7 +11,8 @@ class User:
 
     def validate(self):
         for field in self._fields:
-            validate_field = getattr(self, 'validate_{}'.format(field))
+            method_name = 'validate_{}'.format(field)
+            validate_field = getattr(self, method_name)
             validate_field()
 
     def validate_email(self):
