@@ -35,10 +35,7 @@ class TestValidateUser:
         assert_raises_error(data, 'Last name too long')
 
     def test_invalid_phone_number_raises_error(self):
-        data = {
-            'first_name': 'foo',
-            'last_name': 'baz',
-            'email': 'bar@baz.com',
-            'phone_number': 'notaphone',
-        }
-        assert_raises_error(data, 'Phone number')
+        data = {'phone_number': 'no_phone'}
+        user = User(data)
+        with pytest.raises(ValueError):
+            user.validate_phone_number()
